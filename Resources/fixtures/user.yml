@@ -1,0 +1,21 @@
+App\Entity\User:
+    user_1:
+        Nom: 'test'
+        Prenom: 'test'
+        Password: <()>
+        Role: ["ROLE_USER","ROLE_ADMIN"]
+        Adresse: 'address()'
+        Telephone: <phoneNumber()>
+        Email: <email()>
+        NumPermis: <isbn13()>
+        Location: <isbn13()>
+    user_{2..10}:
+        Nom: <firstName()>
+        Prenom: <lastName()>
+        Password: <password()>
+        Role: ["ROLE_USER"]
+        Adresse: 'address()'
+        Telephone: <phoneNumber()>
+        Email: <email()>
+        NumPermis: <isbn13()>
+        Location: <isbn13()>
