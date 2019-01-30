@@ -17,9 +17,9 @@ security:
             anonymous: ~
             provider: our_db_provider
             form_login:
-                login_path: user_register
-                check_path: user_register
-                username_parameter: "siuser_registergnin[Email]"
+                login_path: user_login
+                check_path: user_login
+                username_parameter: "user_register[Email]"
                 #inspecter l'element puis regarder le name
                 password_parameter: "user_register[Password]"
             logout:

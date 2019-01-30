@@ -10,9 +10,9 @@
         <meta name="viewport" content="width=device-width, minimum-scale=0.25"/>
         <meta name="viewport" content="width=device-width, maximum-scale=5.0"/>
         <meta name="viewport" content="width=device-width, user-scalable=no"/>
-        <link rel="stylesheet" href="\css\style.css">
+     
         <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
-        <script src="\js\style.js"></script>
+
     </head>
     <body>
 
@@ -37,8 +37,32 @@
                 <a href="/logout" class="w3-bar-item w3-button">Log out</a>
             {% else %}
                 <a href="/user/register" class="w3-bar-item w3-button">Register</a>
-                <a href="/signin" class="w3-bar-item w3-button">Sign in</a>
+                <a href="/user/login" class="w3-bar-item w3-button">LogIn</a>
             {% endif %}
         </div>
     </div>
         </header>
+
+
+        <br><br><br><br>
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            <p>Bonjour: {{ app.user.Prenom }} </p>
+        {% endif %}
+
+
+
+
+    <div class="w3-container">
+
+
+        {% for label, messages in app.flashes %}
+            {% for message in messages %}
+                <div class="flash-{{ label }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+
+
+    {% block body %}{% endblock %}
+    {% block javascripts %}{% endblock %}

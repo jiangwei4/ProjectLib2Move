@@ -2,13 +2,16 @@
 
 namespace App\Entity;
 
+use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
+ * @UniqueEntity("Email")
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
-class User
+class User implements UserInterface
 {
     /**
      * @ORM\Id()
@@ -54,7 +57,8 @@ class User
 
     /**
      * @Assert\Email()
-     * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
+     * @ORM\Column(type="string", length=255, unique=true)
      */
     private $Email;
 
@@ -69,6 +73,10 @@ class User
      /**/
     private $Location;
 
+    public function __construct()
+    {
+        $this->Role = array ('ROLE_USER');
+    }
     public function getId(): ?int
     {
         return $this->id;
@@ -110,16 +118,25 @@ class User
         return $this;
     }
 
-    public function getRole(): ?string
+    /**
+     * @return mixed
+     */
+    public function getRoles()
     {
         return $this->Role;
     }
 
-    public function setRole(string $Role): self
+    /**
+     * @param mixed $Role
+     */
+    public function setRoles($Role): void
     {
         $this->Role = $Role;
+    }
 
-        return $this;
+    public function getUsername()
+    {
+        return $this->Prenom;
     }
 
     public function getAdresse(): ?string
@@ -168,5 +185,13 @@ class User
         $this->NumPermis = $NumPermis;
 
         return $this;
+    }
+
+    public function eraseCredentials()
+    {
+    }
+    public function getSalt()
+    {
+        return null;
     }
 }
