@@ -21,14 +21,12 @@ class User implements UserInterface
     private $id;
 
     /**
-     * @Assert\NotBlank()
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $Nom;
 
     /**
-     * @Assert\NotBlank()
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $Prenom;
 
@@ -44,14 +42,12 @@ class User implements UserInterface
     private $Role;
 
     /**
-     * @Assert\NotBlank()
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $Adresse;
 
     /**
-     * @Assert\NotBlank()
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $Telephone;
 
@@ -63,8 +59,7 @@ class User implements UserInterface
     private $Email;
 
     /**
-     * @Assert\NotBlank()
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $NumPermis;
 
