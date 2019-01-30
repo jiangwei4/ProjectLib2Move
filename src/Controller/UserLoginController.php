@@ -19,6 +19,7 @@ class UserLoginController extends Controller
         $user = new User();
         $form= $this->createForm(UserLoginType::class, $user);
         if($form->isSubmitted() && $form->isValid()){
+            dump($form);die();
             $this->addFlash('notice','Bonjour '+$user->getPrenom());
         }
         return $this->render('user_login/index.html.twig', [

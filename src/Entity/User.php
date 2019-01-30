@@ -136,7 +136,7 @@ class User implements UserInterface
 
     public function getUsername()
     {
-        return $this->Prenom;
+        return $this->Email;
     }
 
     public function getAdresse(): ?string

@@ -19,9 +19,9 @@ security:
             form_login:
                 login_path: user_login
                 check_path: user_login
-                username_parameter: "user_register[Email]"
+                username_parameter: "user_login[Email]"
                 #inspecter l'element puis regarder le name
-                password_parameter: "user_register[Password]"
+                password_parameter: "user_login[Password]"
             logout:
                 path: /logout
                 target: /
