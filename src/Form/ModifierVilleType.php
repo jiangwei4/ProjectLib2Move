@@ -6,6 +6,7 @@ use App\Entity\Ville;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class ModifierVilleType extends AbstractType
 {
@@ -17,6 +18,7 @@ class ModifierVilleType extends AbstractType
             ->add('location')
             ->add('vehicule')
             ->add('offrelocation')
+            ->add('submit',SubmitType::class)
         ;
     }
 

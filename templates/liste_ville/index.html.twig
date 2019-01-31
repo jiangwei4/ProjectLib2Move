@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ListeVilleController!{% endblock %}
+{% block title %}Hello {{ controller_name }}!{% endblock %}
 
 {% block body %}
 <style>
@@ -9,12 +9,21 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    {% if villes|length < 1 %}
+        <p>Aucune ville</p>
+    {% endif %}
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'D:/wamp/www/Lib2Move/src/Controller/ListeVilleController.php'|file_link(0) }}">src/Controller/ListeVilleController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'D:/wamp/www/Lib2Move/templates/liste_ville/index.html.twig'|file_link(0) }}">templates/liste_ville/index.html.twig</a></code></li>
-    </ul>
+    {% for ville in villes %}
+
+<br>
+        <div class="w3-card-4" style="width:100%;">
+            <header class="w3-container w3-blue">
+                <h1>{{ ville.ville }}  {{ ville.codePostal}}</h1>
+            </header>
+                <a href="{{ path('liste_ville_remove',{'id':ville.id}) }}"><img src="\img\supr.png"></a>
+                <a href="{{ path('liste_ville_edit',{'id':ville.id}) }}"><img src="\img\edit.png"></a>
+        </div>
+
+    {% endfor %}
 </div>
 {% endblock %}
