@@ -20,12 +20,8 @@
             <header class="w3-container w3-blue">
                 <h1>{{ ville.ville }}  {{ ville.codePostal}}</h1>
             </header>
-           
-               liste location
-               liste offre location
-               liste vehicule
-
-
+                <a href="{{ path('liste_ville_remove',{'id':ville.id}) }}"><img src="\img\supr.png"></a>
+                <a href="{{ path('liste_ville_edit',{'id':ville.id}) }}"><img src="\img\edit.png"></a>
         </div>
 
     {% endfor %}
