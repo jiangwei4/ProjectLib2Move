@@ -112,7 +112,15 @@ class User implements UserInterface
 
         return $this;
     }
+    public function getRole()
+    {
+        return $this->Role;
+    }
 
+    public function setRole($Role): void
+    {
+        $this->Role = $Role;
+    }
     /**
      * @return mixed
      */

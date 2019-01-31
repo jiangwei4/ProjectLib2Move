@@ -10,7 +10,7 @@
         <meta name="viewport" content="width=device-width, minimum-scale=0.25"/>
         <meta name="viewport" content="width=device-width, maximum-scale=5.0"/>
         <meta name="viewport" content="width=device-width, user-scalable=no"/>
-     
+        <link rel="stylesheet" href="\css\style.css">
         <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
 
     </head>
@@ -19,20 +19,35 @@
         <header>
 
 
-      <div class="w3-bar w3-black">
-    <a href="#" class="w3-bar-item w3-button w3-mobile w3-green">Home</a>
-    <a href="/user/register" class="w3-bar-item w3-button w3-mobile">Register</a>
-    <a href="/user/login" class="w3-bar-item w3-button w3-mobile">LogIn</a>
-    <a href="/logout" class="w3-bar-item w3-button w3-mobile">LogOut</a>
-    <div class="w3-dropdown-hover w3-mobile">
-      <button class="w3-button">Dropdown test<i class="fa fa-caret-down"></i></button>
-      <div class="w3-dropdown-content w3-bar-block w3-dark-grey">
-        <a href="#" class="w3-bar-item w3-button w3-mobile">Link 1</a>
-        <a href="#" class="w3-bar-item w3-button w3-mobile">Link 2</a>
-        <a href="#" class="w3-bar-item w3-button w3-mobile">Link 3</a>
-      </div>
+    <div class="w3-bar w3-black">
+        <a href="#" class="w3-bar-item w3-button w3-mobile w3-green">Home</a>
+        <a href="/user/register" class="w3-bar-item w3-button w3-mobile">Register</a>
+        <a href="/user/login" class="w3-bar-item w3-button w3-mobile">LogIn</a>
+        <a href="/logout" class="w3-bar-item w3-button w3-mobile">LogOut</a>
+        <div class="w3-dropdown-hover w3-mobile">
+            <button class="w3-button">Gestion Compte<i class="fa fa-caret-down"></i></button>
+            <div class="w3-dropdown-content w3-bar-block w3-dark-grey">
+                <a href="/modifier/user" class="w3-bar-item w3-button w3-mobile">Modifier Votre Compte</a>
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <a href="/lise/user" class="w3-bar-item w3-button w3-mobile">Lister les utilisateurs</a>
+                    {% endif %}
+                {% endif %}
+             </div>
+        </div>
+
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            {% if is_granted('ROLE_ADMIN') %}
+            <div class="w3-dropdown-hover w3-mobile">
+                <button class="w3-button">Gestion Ville<i class="fa fa-caret-down"></i></button>
+                <div class="w3-dropdown-content w3-bar-block w3-dark-grey">
+                    <a href="/liste/ville"" class="w3-bar-item w3-button w3-mobile">Lister les villes</a>
+                </div>
+            </div>
+            {% endif %}
+        {% endif %}
+
     </div>
-  </div>
 
 
 
