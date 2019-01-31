@@ -3,16 +3,15 @@
 namespace App\Controller;
 
 use App\Entity\User;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\UserRepository;
 use App\Form\ModifierUserAdminType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
-class LiseUserController extends AbstractController
+class LiseUserController extends Controller
 {
     /**
      * @Route("/lise/user", name="lise_user")

@@ -17,7 +17,7 @@ class ModifierUserAdminType extends AbstractType
         $builder
             ->add('Nom')
             ->add('Prenom')
-            ->add('Password',PasswordType::class)
+            ->add('password',PasswordType::class)
             ->add('Role')
             ->add('Adresse')
             ->add('Telephone')

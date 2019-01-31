@@ -2,10 +2,10 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Routing\Annotation\Route;
 
-class ListeVilleController extends AbstractController
+class ListeVilleController extends Controller
 {
     /**
      * @Route("/liste/ville", name="liste_ville")
