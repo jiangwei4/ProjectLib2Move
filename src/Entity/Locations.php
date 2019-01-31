@@ -46,6 +46,13 @@ class Locations
      */
     private $prix;
 
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $ville;
+
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -119,7 +126,7 @@ class Locations
     public function setPrix(int $prix): self
     {
         $this->prix = $prix;
-
         return $this;
     }
+
 }

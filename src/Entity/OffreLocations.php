@@ -32,9 +32,16 @@ class OffreLocations
     private $prix;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="integer")
      */
-    private $dateFin;
+    private $name;
+
+
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $ville;
 
     public function getId(): ?int
     {
@@ -77,15 +84,25 @@ class OffreLocations
         return $this;
     }
 
-    public function getDateFin(): ?\DateTimeInterface
+    public function getVille(): ?string
     {
-        return $this->dateFin;
+        return $this->ville;
     }
 
-    public function setDateFin(\DateTimeInterface $dateFin): self
+    public function setVille(string $ville): self
     {
-        $this->dateFin = $dateFin;
+        $this->ville= $ville;
+        return $this;
+    }
 
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name= $name;
         return $this;
     }
 }
