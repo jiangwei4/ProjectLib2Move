@@ -6,6 +6,7 @@ use App\Entity\Ville;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class AjouterVilleType extends AbstractType
 {
@@ -14,9 +15,7 @@ class AjouterVilleType extends AbstractType
         $builder
             ->add('ville')
             ->add('codePostal')
-            ->add('location')
-            ->add('vehicule')
-            ->add('offrelocation')
+            ->add('submit',SubmitType::class)
         ;
     }
 
