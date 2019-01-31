@@ -1,0 +1,193 @@
+<?php
+
+namespace App\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity(repositoryClass="App\Repository\VehiculeRepository")
+ */
+class Vehicule
+{
+    /**
+     * @ORM\Id()
+     * @ORM\GeneratedValue()
+     * @ORM\Column(type="integer")
+     */
+    private $id;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $Type;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $Marque;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $Modele;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $NumeroSerie;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $Couleur;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $Matricule;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $Kilometrage;
+
+    /**
+     * @ORM\Column(type="date", length=255)
+     */
+    private $DateAchat;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $PrixAchat;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $Disponible;
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getType(): ?string
+    {
+        return $this->Type;
+    }
+
+    public function setType(string $Type): self
+    {
+        $this->Type = $Type;
+
+        return $this;
+    }
+
+    public function getMarque(): ?string
+    {
+        return $this->Marque;
+    }
+
+    public function setMarque(string $Marque): self
+    {
+        $this->Marque = $Marque;
+
+        return $this;
+    }
+
+    public function getModele(): ?string
+    {
+        return $this->Modele;
+    }
+
+    public function setModele(string $Modele): self
+    {
+        $this->Modele = $Modele;
+
+        return $this;
+    }
+
+    public function getNumeroSerie(): ?string
+    {
+        return $this->NumeroSerie;
+    }
+
+    public function setNumeroSerie(string $NumeroSerie): self
+    {
+        $this->NumeroSerie = $NumeroSerie;
+
+        return $this;
+    }
+
+    public function getCouleur(): ?string
+    {
+        return $this->Couleur;
+    }
+
+    public function setCouleur(string $Couleur): self
+    {
+        $this->Couleur = $Couleur;
+
+        return $this;
+    }
+
+    public function getMatricule(): ?string
+    {
+        return $this->Matricule;
+    }
+
+    public function setMatricule(string $Matricule): self
+    {
+        $this->Matricule = $Matricule;
+
+        return $this;
+    }
+
+    public function getKilometrage(): ?string
+    {
+        return $this->Kilometrage;
+    }
+
+    public function setKilometrage(string $Kilometrage): self
+    {
+        $this->Kilometrage = $Kilometrage;
+
+        return $this;
+    }
+
+    public function getDateAchat(): ?\DateTimeInterface
+    {
+        return $this->DateAchat;
+    }
+
+    public function setDateAchat(\DateTimeInterface $dateFin): self
+    {
+        $this->DateAchat = $DateAchat;
+
+        return $this;
+    }
+
+    public function getPrixAchat(): ?int
+    {
+        return $this->PrixAchat;
+    }
+
+    public function setPrixAchat(int $PrixAchat): self
+    {
+        $this->PrixAchat = $PrixAchat;
+
+        return $this;
+    }
+
+    public function getDisponible(): ?string
+    {
+        return $this->Disponible;
+    }
+
+    public function setDisponible(string $Disponible): self
+    {
+        $this->Disponible = $Disponible;
+
+        return $this;
+    }
+}
