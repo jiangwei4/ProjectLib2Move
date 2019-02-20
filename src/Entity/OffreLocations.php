@@ -32,7 +32,7 @@ class OffreLocations
     private $prix;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=255)
      */
     private $name;
 
@@ -43,6 +43,17 @@ class OffreLocations
      */
     private $ville;
 
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name= $name;
+        return $this;
+    }
+    
     public function getId(): ?int
     {
         return $this->id;
@@ -95,14 +106,4 @@ class OffreLocations
         return $this;
     }
 
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
-
-    public function setName(string $name): self
-    {
-        $this->name= $name;
-        return $this;
-    }
 }

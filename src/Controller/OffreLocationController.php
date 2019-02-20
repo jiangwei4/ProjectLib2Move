@@ -28,9 +28,9 @@ class OffreLocationController extends Controller
             $entityManager->persist($offreLocations);
             $entityManager->flush();
             
-            $this->addFlash('notice','Nouvelle offre de locations enregistrée '.$offreLocations->getId());
+            $this->addFlash('notice','Nouvelle offre de locations enregistrée n°'.$offreLocations->getId());
             return $this->redirectToRoute('home');
-
+             
         }
 
         return $this->render('offre_location/index.html.twig', [

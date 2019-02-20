@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ModifierOffreLocationsController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    {% if locations|length < 1 %}
+        <p>Aucune Offre</p>
+    {% endif %}
+
+    {% for location in locations %}
+
+<br>
+        <div class="w3-card-4" style="width:100%;">
+            <header class="w3-container w3-blue">
+                <h1>{{ location.name }}</h1>
+            </header>
+            <div class="w3-container">
+                <label>Type de Vehicule : {{ location.typeVehicule }} </label><br>
+                <label>Kilométrage maximum par jour: {{ location.kmMax }} Km </label><br>
+                <label>Prix de la location pour la journée: {{location.prix}} Euros </label><br>
+                <label>Ville : {{ location.ville }} </label><br>
+                <br>
+            </div>
+                <a href="{{ path('modifier_offre_locations_remove',{'id':user.id}) }}"><img src="\img\supr.png"></a>
+                <a href="{{ path('modifier_offre_locations_edit',{'id':user.id}) }}"><img src="\img\edit.png"></a>
+        </div>
+
+    {% endfor %}
+</div>
+{% endblock %}

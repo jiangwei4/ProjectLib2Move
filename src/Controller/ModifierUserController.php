@@ -23,7 +23,9 @@ class ModifierUserController extends Controller
             $entityManager->flush();
             $this->addFlash('notice','les changements ont bien été éffectués');
             return $this->redirectToRoute('home');
+            
         }
+
         return $this->render('modifier_user/index.html.twig', [
             'controller_name' => 'ModifierUserController',
             'form' => $form->createView(),
