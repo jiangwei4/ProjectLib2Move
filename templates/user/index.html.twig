@@ -29,10 +29,9 @@
                 <td>{{ user.Password }}</td>
                 <td>
                 {% for role in user.Role %}
-               <li> {{ role }}</li>
-               
-               {% endfor %}
-               </td>
+                <li>{{ role }}</li>
+                {%endfor%}
+                </td>
                 <td>{{ user.Adresse }}</td>
                 <td>{{ user.Telephone }}</td>
                 <td>{{ user.Email }}</td>

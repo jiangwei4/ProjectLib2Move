@@ -25,7 +25,11 @@
             </tr>
             <tr>
                 <th>Role</th>
-                <td>{{ user.Role }}</td>
+                <td>
+                {% for role in user.Role %}
+                <li>{{ role }}</li>
+                {%endfor%}
+                </td>
             </tr>
             <tr>
                 <th>Adresse</th>

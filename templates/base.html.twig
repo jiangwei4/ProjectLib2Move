@@ -30,7 +30,7 @@
                 <a href="/modifier/user" class="w3-bar-item w3-button w3-mobile">Modifier Votre Compte</a>
                 {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                         {% if is_granted('ROLE_ADMIN') %}
-                            <a href="/lise/user" class="w3-bar-item w3-button w3-mobile">Lister les utilisateurs</a>
+                            <a href="/user2" class="w3-bar-item w3-button w3-mobile">Lister les utilisateurs</a>
                     {% endif %}
                 {% endif %}
              </div>
