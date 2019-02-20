@@ -17,7 +17,8 @@ class Locations
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="Locations")
+     * @ORM\JoinColumn(nullable=true)
      */
     private $user;
 
