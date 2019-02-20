@@ -63,9 +63,9 @@ class User implements UserInterface
      */
     private $NumPermis;
 
-    /**/
-     // @ORM\OneToMany(targetEntity="App\Entity\Location", mappedBy="user")
-     /**/
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Locations", mappedBy="user")
+     */
     private $Location;
 
     public function __construct()
