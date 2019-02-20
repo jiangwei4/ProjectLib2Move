@@ -9,6 +9,7 @@ use App\Entity\OffreLocations;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use App\Form\ModifierOffreLocationsType;
 
 class ModifierOffreLocationsController extends AbstractController
 {
@@ -18,7 +19,7 @@ class ModifierOffreLocationsController extends AbstractController
     public function index(OffreLocationsRepository $OffreLocationsRepository)
     {
         $locations = $OffreLocationsRepository->findAll();
-        return $this->render('locations/index.html.twig', [
+        return $this->render('modifier_offre_locations/index.html.twig', [
             'controller_name' => 'LocationsController',
             'locations'=>$locations,
         ]);
@@ -48,7 +49,7 @@ class ModifierOffreLocationsController extends AbstractController
                     OffreLocationsRepository $OffreLocationsRepository, int $id)
     {
         $OffreLocations = $OffreLocationsRepository->find($id);
-        $form =$this->createForm(ModifierOffreLocations::class,$OffreLocations);
+        $form =$this->createForm(ModifierOffreLocationsType::class,$OffreLocations);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
             $entityManager->persist($OffreLocations);
@@ -57,7 +58,7 @@ class ModifierOffreLocationsController extends AbstractController
             return $this->redirectToRoute('modifier_offre_locations');
         }
         return $this->render('modifier_offre_locations/editindex.html.twig', [
-            'controller_name' => 'EdituserController',
+            'locations' => $OffreLocations,
             'form' => $form->createView(),
         ]);
     }

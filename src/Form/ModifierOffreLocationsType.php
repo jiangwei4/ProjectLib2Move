@@ -6,6 +6,7 @@ use App\Entity\OffreLocations;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class ModifierOffreLocationsType extends AbstractType
 {
@@ -17,6 +18,7 @@ class ModifierOffreLocationsType extends AbstractType
             ->add('prix')
             ->add('name')
             ->add('ville')
+            ->add('submit',SubmitType::class)
         ;
     }
 

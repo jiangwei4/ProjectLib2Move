@@ -27,8 +27,8 @@
                 <label>Ville : {{ location.ville }} </label><br>
                 <br>
             </div>
-                <a href="{{ path('modifier_offre_locations_remove',{'id':user.id}) }}"><img src="\img\supr.png"></a>
-                <a href="{{ path('modifier_offre_locations_edit',{'id':user.id}) }}"><img src="\img\edit.png"></a>
+                <a href="{{ path('modifier_offre_locations_remove',{'id':location.id}) }}"><img src="\img\supr.png"></a>
+                <a href="{{ path('modifier_offre_locations_edit',{'id':location.id}) }}"><img src="\img\edit.png"></a>
         </div>
 
     {% endfor %}
