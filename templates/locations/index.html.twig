@@ -28,8 +28,9 @@
                 <label>Ville : {{ location.ville }} </label><br>
                 <br>
             </div>
+            <a href="{{ path('locations_choix',{'id':location.id}) }}"><img src="\img\choisir.png"></a>
         </div>
-
+        
     {% endfor %}
 </div>
 {% endblock %}
