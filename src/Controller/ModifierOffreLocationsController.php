@@ -18,10 +18,10 @@ class ModifierOffreLocationsController extends AbstractController
      */
     public function index(OffreLocationsRepository $OffreLocationsRepository)
     {
-        $locations = $OffreLocationsRepository->findAll();
+        $Offrelocations = $OffreLocationsRepository->findAll();
         return $this->render('modifier_offre_locations/index.html.twig', [
-            'controller_name' => 'LocationsController',
-            'locations'=>$locations,
+            'controller_name' => 'ModifierOffreLocationsController',
+            'Offrelocations'=>$Offrelocations,
         ]);
     }
     /**
@@ -55,7 +55,7 @@ class ModifierOffreLocationsController extends AbstractController
             $entityManager->persist($OffreLocations);
             $entityManager->flush();
             $this->addFlash('notice', 'Changement(s) effectué(s)!');
-            return $this->redirectToRoute('modifier_offre_locations');
+            return $this->redirectToRoute(''-'');
         }
         return $this->render('modifier_offre_locations/editindex.html.twig', [
             'locations' => $OffreLocations,

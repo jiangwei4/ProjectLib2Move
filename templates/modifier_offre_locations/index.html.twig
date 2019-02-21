@@ -9,26 +9,26 @@
 </style>
 
 <div class="example-wrapper">
-    {% if locations|length < 1 %}
+    {% if Offrelocations|length < 1 %}
         <p>Aucune Offre</p>
     {% endif %}
 
-    {% for location in locations %}
+    {% for offre in Offrelocations %}
 
 <br>
         <div class="w3-card-4" style="width:100%;">
             <header class="w3-container w3-blue">
-                <h1>{{ location.name }}</h1>
+                <h1>{{ offre.name }}</h1>
             </header>
             <div class="w3-container">
-                <label>Type de Vehicule : {{ location.typeVehicule }} </label><br>
-                <label>Kilométrage maximum par jour: {{ location.kmMax }} Km </label><br>
-                <label>Prix de la location pour la journée: {{location.prix}} Euros </label><br>
-                <label>Ville : {{ location.ville }} </label><br>
+                <label>Type de Vehicule : {{ offre.typeVehicule }} </label><br>
+                <label>Kilométrage maximum par jour: {{ offre.kmMax }} Km </label><br>
+                <label>Prix de la location pour la journée: {{offre.prix}} Euros </label><br>
+                <label>Ville : {{ offre.ville }} </label><br>
                 <br>
             </div>
-                <a href="{{ path('modifier_offre_locations_remove',{'id':location.id}) }}"><img src="\img\supr.png"></a>
-                <a href="{{ path('modifier_offre_locations_edit',{'id':location.id}) }}"><img src="\img\edit.png"></a>
+                <a href="{{ path('modifier_offre_locations_remove',{'id':offre.id}) }}"><img src="\img\supr.png"></a>
+                <a href="{{ path('modifier_offre_locations_edit',{'id':offre.id}) }}"><img src="\img\edit.png"></a>
         </div>
 
     {% endfor %}
