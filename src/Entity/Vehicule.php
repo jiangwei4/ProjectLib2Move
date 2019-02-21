@@ -66,6 +66,12 @@ class Vehicule
      */
     private $Disponible;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Gamme", inversedBy="vehicules")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $Gamme;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -160,7 +166,7 @@ class Vehicule
         return $this->DateAchat;
     }
 
-    public function setDateAchat(\DateTimeInterface $dateFin): self
+    public function setDateAchat(\DateTimeInterface $DateAchat): self
     {
         $this->DateAchat = $DateAchat;
 
@@ -187,6 +193,18 @@ class Vehicule
     public function setDisponible(string $Disponible): self
     {
         $this->Disponible = $Disponible;
+
+        return $this;
+    }
+
+    public function getGamme(): ?Gamme
+    {
+        return $this->Gamme;
+    }
+
+    public function setGamme(?Gamme $Gamme): self
+    {
+        $this->Gamme = $Gamme;
 
         return $this;
     }

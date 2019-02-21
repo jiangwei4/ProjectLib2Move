@@ -1,60 +1,96 @@
-<?php 
+<?php
+
 namespace App\Controller;
 
 use App\Entity\Vehicule;
+use App\Form\Vehicule1Type;
+use App\Repository\VehiculeRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * @Route("/vehicule")
+ */
 class VehiculeController extends AbstractController
 {
     /**
-     * Matches /blog exactly
-     *
-     * @Route("/ajout-vehicule", name="ajout_vehicule")
+     * @Route("/listing-vehicule", name="vehicule_index", methods={"GET"})
      */
-    public function new(Request $request)
+    public function index(VehiculeRepository $vehiculeRepository): Response
     {
-        // creates a task and gives it some dummy data for this example
+        return $this->render('vehicule/index.html.twig', [
+            'vehicules' => $vehiculeRepository->findAll(),
+        ]);
+    }
+
+    /**
+     * @Route("/ajout-vehicule", name="vehicule_new", methods={"GET","POST"})
+     */
+    public function new(Request $request): Response
+    {
         $vehicule = new Vehicule();
+        $form = $this->createForm(Vehicule1Type::class, $vehicule);
+        $form->handleRequest($request);
 
-        $form = $this->createFormBuilder($vehicule)
-            ->add('Type')
-            ->add('Marque')
-            ->add('Modele')
-            ->add('NumeroSerie')
-            ->add('Couleur')
-            ->add('Matricule')
-            ->add('Kilometrage')
-            ->add('DateAchat')
-            ->add('PrixAchat')
-            ->add('Disponible')
-            ->add('DateAchat', DateType::class)
-            ->add('save', SubmitType::class, ['label' => 'Ajouter un véhicule'])
-            ->getForm();
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($vehicule);
+            $entityManager->flush();
 
-            $form->handleRequest($request);
+            return $this->redirectToRoute('vehicule_index');
+        }
 
-            if ($form->isSubmitted() && $form->isValid()) 
-            {
-                // $form->getData() holds the submitted values
-                // but, the original `$task` variable has also been updated
-                $task = $form->getData();
-
-                // ... perform some action, such as saving the task to the database
-                // for example, if Task is a Doctrine entity, save it!
-                // $entityManager = $this->getDoctrine()->getManager();
-                // $entityManager->persist($task);
-                // $entityManager->flush();
-
-                return $this->redirectToRoute('ajout_vehicule_success');
-            }
-
-        return $this->render('vehicule/ajout-vehicule.html.twig', [
+        return $this->render('vehicule/new.html.twig', [
+            'vehicule' => $vehicule,
             'form' => $form->createView(),
         ]);
+    }
+
+    /**
+     * @Route("/{id}", name="vehicule_show", methods={"GET"})
+     */
+    public function show(Vehicule $vehicule): Response
+    {
+        return $this->render('vehicule/show.html.twig', [
+            'vehicule' => $vehicule,
+        ]);
+    }
+
+    /**
+     * @Route("/{id}/edit", name="vehicule_edit", methods={"GET","POST"})
+     */
+    public function edit(Request $request, Vehicule $vehicule): Response
+    {
+        $form = $this->createForm(Vehicule1Type::class, $vehicule);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('vehicule_index', [
+                'id' => $vehicule->getId(),
+            ]);
+        }
+
+        return $this->render('vehicule/edit.html.twig', [
+            'vehicule' => $vehicule,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/{id}", name="vehicule_delete", methods={"DELETE"})
+     */
+    public function delete(Request $request, Vehicule $vehicule): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$vehicule->getId(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($vehicule);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('vehicule_index');
     }
 }
