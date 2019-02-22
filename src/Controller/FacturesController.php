@@ -57,7 +57,20 @@ class FacturesController extends AbstractController
             'facture' => $facture,
         ]);
     }
-    
+
+    /**
+     * @Route("/user/show", name="user_factures_edit", methods={"GET","POST"})
+     */
+    public function showUser(FacturesRepository $facturesRepository): Response
+    {
+        $factures = $facturesRepository->findByUser($this->getUser());
+        return $this->render('factures/showUser.html.twig', [
+            'factures' => $factures,
+        ]);
+    }
+
+
+
     /**
      * @Route("/{id}/edit", name="factures_edit", methods={"GET","POST"})
      */
