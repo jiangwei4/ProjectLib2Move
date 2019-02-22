@@ -50,6 +50,20 @@
 
 
 
+ {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            {% if is_granted('ROLE_ADMIN') %}
+            <div class="w3-dropdown-hover w3-mobile">
+                <button class="w3-button">Gestion factures<i class="fa fa-caret-down"></i></button>
+                <div class="w3-dropdown-content w3-bar-block w3-dark-grey">
+                    <a href="/factures/{id}" class="w3-bar-item w3-button w3-mobile">Vos Factures</a>
+                    <a href="/factures" class="w3-bar-item w3-button w3-mobile">Lister les factures</a>
+                </div>
+            </div>
+            {% endif %}
+        {% endif %}
+
+
+
 
 
 
