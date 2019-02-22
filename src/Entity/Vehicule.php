@@ -19,11 +19,6 @@ class Vehicule
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Type;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
     private $Marque;
 
     /**
@@ -71,6 +66,18 @@ class Vehicule
      * @ORM\JoinColumn(nullable=false)
      */
     private $Gamme;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\TypeVehicule", inversedBy="vehicules")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $TypeVehicule;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Ville", inversedBy="vehicules")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $Ville;
 
     public function getId(): ?int
     {
@@ -205,6 +212,30 @@ class Vehicule
     public function setGamme(?Gamme $Gamme): self
     {
         $this->Gamme = $Gamme;
+
+        return $this;
+    }
+
+    public function getTypeVehicule(): ?TypeVehicule
+    {
+        return $this->TypeVehicule;
+    }
+
+    public function setTypeVehicule(?TypeVehicule $TypeVehicule): self
+    {
+        $this->TypeVehicule = $TypeVehicule;
+
+        return $this;
+    }
+
+    public function getVille(): ?Ville
+    {
+        return $this->Ville;
+    }
+
+    public function setVille(?Ville $Ville): self
+    {
+        $this->Ville = $Ville;
 
         return $this;
     }
