@@ -43,6 +43,12 @@ class OffreLocations
      */
     private $ville;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Gamme", inversedBy="offreLocations")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $gamme;
+
     public function getName(): ?string
     {
         return $this->name;
@@ -103,6 +109,18 @@ class OffreLocations
     public function setVille(string $ville): self
     {
         $this->ville= $ville;
+        return $this;
+    }
+
+    public function getGamme(): ?Gamme
+    {
+        return $this->gamme;
+    }
+
+    public function setGamme(?Gamme $gamme): self
+    {
+        $this->gamme = $gamme;
+
         return $this;
     }
 

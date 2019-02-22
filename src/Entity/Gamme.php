@@ -28,9 +28,15 @@ class Gamme
      */
     private $vehicules;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\OffreLocations", mappedBy="gamme")
+     */
+    private $offreLocations;
+
     public function __construct()
     {
         $this->vehicules = new ArrayCollection();
+        $this->offreLocations = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -75,6 +81,37 @@ class Gamme
             // set the owning side to null (unless already changed)
             if ($vehicule->getGamme() === $this) {
                 $vehicule->setGamme(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|OffreLocations[]
+     */
+    public function getOffreLocations(): Collection
+    {
+        return $this->offreLocations;
+    }
+
+    public function addOffreLocation(OffreLocations $offreLocation): self
+    {
+        if (!$this->offreLocations->contains($offreLocation)) {
+            $this->offreLocations[] = $offreLocation;
+            $offreLocation->setGamme($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOffreLocation(OffreLocations $offreLocation): self
+    {
+        if ($this->offreLocations->contains($offreLocation)) {
+            $this->offreLocations->removeElement($offreLocation);
+            // set the owning side to null (unless already changed)
+            if ($offreLocation->getGamme() === $this) {
+                $offreLocation->setGamme(null);
             }
         }
 
