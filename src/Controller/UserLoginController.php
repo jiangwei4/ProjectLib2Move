@@ -27,4 +27,13 @@ class UserLoginController extends Controller
             'form'=> $form->createView(),
         ]);
     }
+     /**
+     * @Route("/", name="user_index", methods={"GET"})
+     */
+    public function indexhome(UserRepository $userRepository): Response
+    {
+        return $this->render('user/index.html.twig', [
+            'users' => $userRepository->findAll(),
+        ]);
+    }
 }
