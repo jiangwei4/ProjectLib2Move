@@ -73,21 +73,14 @@ class Vehicule
      */
     private $TypeVehicule;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Ville", inversedBy="vehicules")
+     */
+    private $Ville;
+
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getType(): ?string
-    {
-        return $this->Type;
-    }
-
-    public function setType(string $Type): self
-    {
-        $this->Type = $Type;
-
-        return $this;
     }
 
     public function getMarque(): ?string
@@ -218,6 +211,18 @@ class Vehicule
     public function setTypeVehicule(?TypeVehicule $TypeVehicule): self
     {
         $this->TypeVehicule = $TypeVehicule;
+
+        return $this;
+    }
+
+    public function getVille(): ?Ville
+    {
+        return $this->Ville;
+    }
+
+    public function setVille(?Ville $Ville): self
+    {
+        $this->Ville = $Ville;
 
         return $this;
     }

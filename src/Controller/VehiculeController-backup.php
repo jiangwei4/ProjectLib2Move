@@ -16,7 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class VehiculeController extends AbstractController
 {
     /**
-     * @Route("/listing-vehicule", name="vehicule_index", methods={"GET"})
+     * @Route("/listing", name="vehicule_index", methods={"GET"})
      */
     public function index(VehiculeRepository $vehiculeRepository): Response
     {
@@ -31,7 +31,7 @@ class VehiculeController extends AbstractController
     public function new(Request $request): Response
     {
         $vehicule = new Vehicule();
-        $form = $this->createForm(Vehicule1Type::class, $vehicule);
+        $form = $this->createForm(Vehicule::class, $vehicule);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

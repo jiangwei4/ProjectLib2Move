@@ -12,7 +12,6 @@ class VehiculeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('Type')
             ->add('Marque')
             ->add('Modele')
             ->add('NumeroSerie')
@@ -22,6 +21,8 @@ class VehiculeType extends AbstractType
             ->add('DateAchat')
             ->add('PrixAchat')
             ->add('Disponible')
+            ->add('Gamme')
+            ->add('TypeVehicule')
         ;
     }
 
