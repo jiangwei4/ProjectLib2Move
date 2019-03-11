@@ -5,9 +5,9 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\OffreLocationsRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\OffreDeLocationsBisRepository")
  */
-class OffreLocations
+class OffreDeLocationsBis
 {
     /**
      * @ORM\Id()
@@ -17,17 +17,17 @@ class OffreLocations
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\TypeVehicule", inversedBy="OffreLocations")
+     * @ORM\ManyToOne(targetEntity="App\Entity\TypeVehicule", inversedBy="offreDeLocationsBis")
      */
     private $TypeVehicule;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Gamme", inversedBy="OffreLocations")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Gamme", inversedBy="offreDeLocationsBis")
      */
     private $Gamme;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Ville", inversedBy="OffreLocations")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Ville", inversedBy="offreDeLocationsBis")
      */
     private $Ville;
 

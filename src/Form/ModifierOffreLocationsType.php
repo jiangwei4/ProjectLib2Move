@@ -18,6 +18,7 @@ class ModifierOffreLocationsType extends AbstractType
             ->add('prix')
             ->add('name')
             ->add('ville')
+            ->add('gamme')
             ->add('submit',SubmitType::class)
         ;
     }

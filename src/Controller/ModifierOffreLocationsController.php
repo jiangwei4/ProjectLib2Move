@@ -55,7 +55,7 @@ class ModifierOffreLocationsController extends AbstractController
             $entityManager->persist($OffreLocations);
             $entityManager->flush();
             $this->addFlash('notice', 'Changement(s) effectué(s)!');
-            return $this->redirectToRoute(''-'');
+            return $this->redirectToRoute('modifier_offre_locations');
         }
         return $this->render('modifier_offre_locations/editindex.html.twig', [
             'locations' => $OffreLocations,

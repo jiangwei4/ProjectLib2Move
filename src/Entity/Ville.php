@@ -28,9 +28,21 @@ class Ville
      */
     private $vehicules;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\OffreDelLocationsBis", mappedBy="Ville")
+     */
+    private $offreDelLocationsBis;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\OffreDeLocationsBis", mappedBy="Ville")
+     */
+    private $offreDeLocationsBis;
+
     public function __construct()
     {
         $this->vehicules = new ArrayCollection();
+        $this->offreDelLocationsBis = new ArrayCollection();
+        $this->offreDeLocationsBis = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -75,6 +87,68 @@ class Ville
             // set the owning side to null (unless already changed)
             if ($vehicule->getVille() === $this) {
                 $vehicule->setVille(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|OffreDelLocationsBis[]
+     */
+    public function getOffreDelLocationsBis(): Collection
+    {
+        return $this->offreDelLocationsBis;
+    }
+
+    public function addOffreDelLocationsBi(OffreDelLocationsBis $offreDelLocationsBi): self
+    {
+        if (!$this->offreDelLocationsBis->contains($offreDelLocationsBi)) {
+            $this->offreDelLocationsBis[] = $offreDelLocationsBi;
+            $offreDelLocationsBi->setVille($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOffreDelLocationsBi(OffreDelLocationsBis $offreDelLocationsBi): self
+    {
+        if ($this->offreDelLocationsBis->contains($offreDelLocationsBi)) {
+            $this->offreDelLocationsBis->removeElement($offreDelLocationsBi);
+            // set the owning side to null (unless already changed)
+            if ($offreDelLocationsBi->getVille() === $this) {
+                $offreDelLocationsBi->setVille(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|OffreDeLocationsBis[]
+     */
+    public function getOffreDeLocationsBis(): Collection
+    {
+        return $this->offreDeLocationsBis;
+    }
+
+    public function addOffreDeLocationsBi(OffreDeLocationsBis $offreDeLocationsBi): self
+    {
+        if (!$this->offreDeLocationsBis->contains($offreDeLocationsBi)) {
+            $this->offreDeLocationsBis[] = $offreDeLocationsBi;
+            $offreDeLocationsBi->setVille($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOffreDeLocationsBi(OffreDeLocationsBis $offreDeLocationsBi): self
+    {
+        if ($this->offreDeLocationsBis->contains($offreDeLocationsBi)) {
+            $this->offreDeLocationsBis->removeElement($offreDeLocationsBi);
+            // set the owning side to null (unless already changed)
+            if ($offreDeLocationsBi->getVille() === $this) {
+                $offreDeLocationsBi->setVille(null);
             }
         }
 

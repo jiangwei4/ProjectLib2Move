@@ -33,10 +33,22 @@ class Gamme
      */
     private $offreLocations;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\OffreDelLocationsBis", mappedBy="Gamme")
+     */
+    private $offreDelLocationsBis;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\OffreDeLocationsBis", mappedBy="Gamme")
+     */
+    private $offreDeLocationsBis;
+
     public function __construct()
     {
         $this->vehicules = new ArrayCollection();
         $this->offreLocations = new ArrayCollection();
+        $this->offreDelLocationsBis = new ArrayCollection();
+        $this->offreDeLocationsBis = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -127,5 +139,67 @@ class Gamme
         return $this->Nom;
         // to show the id of the Category in the select
         // return $this->id;
+    }
+
+    /**
+     * @return Collection|OffreDelLocationsBis[]
+     */
+    public function getOffreDelLocationsBis(): Collection
+    {
+        return $this->offreDelLocationsBis;
+    }
+
+    public function addOffreDelLocationsBi(OffreDelLocationsBis $offreDelLocationsBi): self
+    {
+        if (!$this->offreDelLocationsBis->contains($offreDelLocationsBi)) {
+            $this->offreDelLocationsBis[] = $offreDelLocationsBi;
+            $offreDelLocationsBi->setGamme($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOffreDelLocationsBi(OffreDelLocationsBis $offreDelLocationsBi): self
+    {
+        if ($this->offreDelLocationsBis->contains($offreDelLocationsBi)) {
+            $this->offreDelLocationsBis->removeElement($offreDelLocationsBi);
+            // set the owning side to null (unless already changed)
+            if ($offreDelLocationsBi->getGamme() === $this) {
+                $offreDelLocationsBi->setGamme(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|OffreDeLocationsBis[]
+     */
+    public function getOffreDeLocationsBis(): Collection
+    {
+        return $this->offreDeLocationsBis;
+    }
+
+    public function addOffreDeLocationsBi(OffreDeLocationsBis $offreDeLocationsBi): self
+    {
+        if (!$this->offreDeLocationsBis->contains($offreDeLocationsBi)) {
+            $this->offreDeLocationsBis[] = $offreDeLocationsBi;
+            $offreDeLocationsBi->setGamme($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOffreDeLocationsBi(OffreDeLocationsBis $offreDeLocationsBi): self
+    {
+        if ($this->offreDeLocationsBis->contains($offreDeLocationsBi)) {
+            $this->offreDeLocationsBis->removeElement($offreDeLocationsBi);
+            // set the owning side to null (unless already changed)
+            if ($offreDeLocationsBi->getGamme() === $this) {
+                $offreDeLocationsBi->setGamme(null);
+            }
+        }
+
+        return $this;
     }
 }
