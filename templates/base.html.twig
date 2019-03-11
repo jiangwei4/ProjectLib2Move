@@ -12,7 +12,11 @@
         <meta name="viewport" content="width=device-width, user-scalable=no"/>
         <link rel="stylesheet" href="\css\style.css">
         <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
-
+        
+     
+        <script type="text/javascript" src="http://maps.google.com/maps?file=api&v=2&key=AIzaSyC2Ukyz69u0v8LbA9Kw-kiw4Y16oB1eYXo"></script>
+        <script type="text/javascript" src="\js\lib2move.js"></script>
+          <!--<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC2Ukyz69u0v8LbA9Kw-kiw4Y16oB1eYXo&callback=initMap"></script>-->
     </head>
     <body>
 
@@ -121,8 +125,9 @@
 
 
 
-
     <div class="w3-container">
+
+
 
 
         {% for label, messages in app.flashes %}
@@ -133,6 +138,9 @@
             {% endfor %}
         {% endfor %}
 
+<div id="infoposition"></div>
+<div id="map"></div>
+<div id="map-canvas"></div>
 
     {% block body %}{% endblock %}
     {% block javascripts %}{% endblock %}
