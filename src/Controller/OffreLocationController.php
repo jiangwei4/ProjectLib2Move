@@ -8,6 +8,7 @@ use App\Form\OffreLocationsType;
 use App\Entity\OffreLocations;
 use Symfony\Component\HttpFoundation\Request;
 use App\Repository\OffreLocationsRepository;
+use App\Repository\GammeRepository;
 
 class OffreLocationController extends Controller
 {
@@ -15,9 +16,10 @@ class OffreLocationController extends Controller
      * @Route("/offre/location", name="offre_location")
      */
 
-    public function index(Request $request, OffreLocationsRepository $offreLocations)
+    public function index(Request $request, OffreLocationsRepository $offreLocations, GammeRepository $GammeRepository)
     {
         $offreLocations = new OffreLocations();
+        $gammes = $GammeRepository->findAll();
         $form= $this->createForm(OffreLocationsType::class, $offreLocations);
         $form->handleRequest($request);
 
@@ -29,7 +31,7 @@ class OffreLocationController extends Controller
             $entityManager->flush();
             
             $this->addFlash('notice','Nouvelle offre de locations enregistrée n°'.$offreLocations->getId());
-            return $this->redirectToRoute('home');
+            //return $this->redirectToRoute('home');
              
         }
 

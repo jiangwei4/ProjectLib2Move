@@ -18,6 +18,7 @@ class OffreLocationsType extends AbstractType
             ->add('kmMax')
             ->add('prix')
             ->add('ville')
+            ->add('gamme')
             ->add('submit',SubmitType::class)
         ;
     }

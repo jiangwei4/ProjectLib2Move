@@ -15,7 +15,7 @@ class UserRegisterController extends Controller
 {
 
     /**
-     * @Route("/", name="home")
+     * @Route("/", name="   ")
      */
     public function index2()
     {

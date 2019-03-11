@@ -17,15 +17,19 @@
     {% for location in locations %}
 
 <br>
-        <div class="w3-card-4" style="width:100%;">
+        <div class="w3-card-4" style="width:100%;²">
             <header class="w3-container w3-blue">
                 <h1>{{ location.name }}</h1>
             </header>
             <div class="w3-container">
-                <label>Type de Vehicule : {{ location.typeVehicule }} </label><br>
-                <label>Kilométrage maximum par jour: {{ location.kmMax }} Km </label><br>
-                <label>Prix de la location pour la journée: {{location.prix}} Euros </label><br>
-                <label>Ville : {{ location.ville }} </label><br>
+                <table>
+                <tr><td><label>Type de Vehicule : {{ location.typeVehicule }} </label></td><td>Liste Vehicule</td></tr>
+                <tr><td><label>Kilométrage maximum par jour: {{ location.kmMax }} Km </label></td></tr>
+                <tr><td><label>Prix de la location pour la journée: {{location.prix}} Euros </label></td></tr>
+                <tr><td><label>Gamme : {{location.gamme}}
+                </label></td></tr>
+                <tr><td><label>Ville : {{ location.ville }} </label></td></tr>
+                </table>
                 <br>
             </div>
             <a href="{{ path('locations_choix',{'id':location.id}) }}"><img src="\img\choisir.png"></a>
