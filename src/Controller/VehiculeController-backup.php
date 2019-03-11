@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Vehicule;
-use App\Form\Vehicule2Type;
+use App\Form\Vehicule1Type;
 use App\Repository\VehiculeRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,7 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class VehiculeController extends AbstractController
 {
     /**
-     * @Route("/", name="vehicule_index", methods={"GET"})
+     * @Route("/listing-vehicule", name="vehicule_index", methods={"GET"})
      */
     public function index(VehiculeRepository $vehiculeRepository): Response
     {
@@ -26,12 +26,12 @@ class VehiculeController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="vehicule_new", methods={"GET","POST"})
+     * @Route("/ajout-vehicule", name="vehicule_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {
         $vehicule = new Vehicule();
-        $form = $this->createForm(Vehicule2Type::class, $vehicule);
+        $form = $this->createForm(Vehicule1Type::class, $vehicule);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -63,7 +63,7 @@ class VehiculeController extends AbstractController
      */
     public function edit(Request $request, Vehicule $vehicule): Response
     {
-        $form = $this->createForm(Vehicule2Type::class, $vehicule);
+        $form = $this->createForm(Vehicule1Type::class, $vehicule);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

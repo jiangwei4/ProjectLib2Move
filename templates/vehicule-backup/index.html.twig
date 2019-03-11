@@ -9,6 +9,7 @@
         <thead>
             <tr>
                 <th>Id</th>
+                <th>Type</th>
                 <th>Marque</th>
                 <th>Modele</th>
                 <th>NumeroSerie</th>
@@ -25,6 +26,7 @@
         {% for vehicule in vehicules %}
             <tr>
                 <td>{{ vehicule.id }}</td>
+                <td>{{ vehicule.Type }}</td>
                 <td>{{ vehicule.Marque }}</td>
                 <td>{{ vehicule.Modele }}</td>
                 <td>{{ vehicule.NumeroSerie }}</td>
@@ -41,7 +43,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="11">no records found</td>
+                <td colspan="12">no records found</td>
             </tr>
         {% endfor %}
         </tbody>

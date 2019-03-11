@@ -73,12 +73,6 @@ class Vehicule
      */
     private $TypeVehicule;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Ville", inversedBy="vehicules")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $Ville;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -224,18 +218,6 @@ class Vehicule
     public function setTypeVehicule(?TypeVehicule $TypeVehicule): self
     {
         $this->TypeVehicule = $TypeVehicule;
-
-        return $this;
-    }
-
-    public function getVille(): ?Ville
-    {
-        return $this->Ville;
-    }
-
-    public function setVille(?Ville $Ville): self
-    {
-        $this->Ville = $Ville;
 
         return $this;
     }
