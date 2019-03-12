@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}OffreLocations index{% endblock %}
+
+{% block body %}
+    <h1>OffreLocations index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>KmMax</th>
+                <th>Prix</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for offre_location in offre_locations %}
+            <tr>
+                <td>{{ offre_location.id }}</td>
+                <td>{{ offre_location.KmMax }}</td>
+                <td>{{ offre_location.Prix }}</td>
+                <td>{{ offre_location.Ville }}</td>
+                <td>
+                    <a href="{{ path('offre_locations_show', {'id': offre_location.id}) }}">show</a>
+                    <a href="{{ path('offre_locations_edit', {'id': offre_location.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('offre_locations_new') }}">Create new</a>
+{% endblock %}

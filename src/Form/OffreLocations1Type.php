@@ -2,27 +2,20 @@
 
 namespace App\Form;
 
-use App\Entity\Vehicule;
+use App\Entity\OffreLocations;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class VehiculeType extends AbstractType
+class OffreLocations1Type extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('Marque')
-            ->add('Modele')
-            ->add('NumeroSerie')
-            ->add('Couleur')
-            ->add('Matricule')
-            ->add('Kilometrage')
-            ->add('DateAchat')
-            ->add('PrixAchat')
-            ->add('Disponible')
-            ->add('Gamme')
+            ->add('KmMax')
+            ->add('Prix')
             ->add('TypeVehicule')
+            ->add('Gamme')
             ->add('Ville')
         ;
     }
@@ -30,7 +23,7 @@ class VehiculeType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Vehicule::class,
+            'data_class' => OffreLocations::class,
         ]);
     }
 }
