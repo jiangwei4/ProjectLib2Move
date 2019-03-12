@@ -22,7 +22,7 @@ class VehiculeRepository extends ServiceEntityRepository
     // /**
     //  * @return Vehicule[] Returns an array of Vehicule objects
     //  */
-    /*
+    
     public function findByExampleField($value)
     {
         return $this->createQueryBuilder('v')
@@ -34,7 +34,7 @@ class VehiculeRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
-    */
+    
 
     /*
     public function findOneBySomeField($value): ?Vehicule

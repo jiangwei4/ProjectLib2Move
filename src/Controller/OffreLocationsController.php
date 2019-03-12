@@ -39,7 +39,7 @@ class OffreLocationsController extends AbstractController
             $entityManager->persist($offreLocation);
             $entityManager->flush();
 
-            return $this->redirectToRoute('offre_locations_index');
+            return $this->redirectToRoute('/home');
         }
 
         return $this->render('offre_locations/new.html.twig', [
@@ -83,6 +83,7 @@ class OffreLocationsController extends AbstractController
     /**
      * @Route("/{id}", name="offre_locations_delete", methods={"DELETE"})
      */
+        
     public function delete(Request $request, OffreLocations $offreLocation): Response
     {
         if ($this->isCsrfTokenValid('delete'.$offreLocation->getId(), $request->request->get('_token'))) {

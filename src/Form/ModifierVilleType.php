@@ -13,12 +13,11 @@ class ModifierVilleType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('ville')
-            ->add('codePostal')
-            ->add('location')
-            ->add('vehicule')
-            ->add('offrelocation')
-            ->add('submit',SubmitType::class)
+            ->add('KmMax')
+            ->add('Prix')
+            ->add('TypeVehicule')
+            ->add('Gamme')
+            ->add('Ville')
         ;
     }
 

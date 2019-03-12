@@ -13,12 +13,11 @@ class OffreLocationsType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('Name')
-            ->add('typeVehicule')
+            ->add('TypeVehicule')
             ->add('kmMax')
             ->add('prix')
-            ->add('ville')
-            ->add('gamme')
+            ->add('Ville')
+            ->add('Gamme')
             ->add('submit',SubmitType::class)
         ;
     }
