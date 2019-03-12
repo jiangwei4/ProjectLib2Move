@@ -51,12 +51,12 @@ class FacturesController extends AbstractController
     /**
      * @Route("/{id}", name="factures_show", methods={"GET"})
      */
-  /*  public function show(Factures $facture): Response
+    public function show(Factures $facture): Response
     {
         return $this->render('factures/show.html.twig', [
             'facture' => $facture,
         ]);
-    }*/
+    }
 
     /**
      * @Route("/user/show", name="user_factures_edit", methods={"GET","POST"})
