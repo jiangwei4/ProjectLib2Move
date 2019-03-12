@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}OffreLocations index{% endblock %}
+
+{% block body %}
+    <h1>OffreLocations index</h1>
+
+   
+        {% for offre_location in offre_locations %}
+        
+           <a href="{{ path('offre_locations_by_vehicule_list', {'id': offre_location.id}) }}">
+                {{ offre_location.KmMax }}
+                {{ offre_location.Prix }}
+                {{ offre_location.Ville }}
+            </a>
+            <br>
+        {% else %}
+           
+        {% endfor %}
+{% endblock %}
