@@ -42,9 +42,11 @@ security:
          - { path: ^/factures/edit, roles: ROLE_ADMIN }
          - { path: ^/factures/new, roles: ROLE_ADMIN }
          - { path: ^/factures/index, roles: ROLE_ADMIN }
+         - { path: ^/vehicule, roles: ROLE_ADMIN }
+         
 #- { path: ^/factures, roles: ROLE_ADMIN }
  #        - { path: ^/factures, roles: ROLE_ADMIN }
-  #       - { path: ^/factures, roles: ROLE_ADMIN }
-   #      - { path: ^/factures, roles: ROLE_ADMIN }
+         - { path: ^/factures/*/edit, roles: ROLE_ADMIN }
+         - { path: ^/factures/liste, roles: ROLE_ADMIN }
          - { path: ^/factures/user/show , roles: ROLE_USER }
         # - { path: ^/profile, roles: ROLE_USER }

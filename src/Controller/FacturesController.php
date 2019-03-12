@@ -16,7 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class FacturesController extends AbstractController
 {
     /**
-     * @Route("/", name="factures_index", methods={"GET"})
+     * @Route("/liste", name="factures_index", methods={"GET"})
      */
     public function index(FacturesRepository $facturesRepository): Response
     {
@@ -51,12 +51,12 @@ class FacturesController extends AbstractController
     /**
      * @Route("/{id}", name="factures_show", methods={"GET"})
      */
-    public function show(Factures $facture): Response
+  /*  public function show(Factures $facture): Response
     {
         return $this->render('factures/show.html.twig', [
             'facture' => $facture,
         ]);
-    }
+    }*/
 
     /**
      * @Route("/user/show", name="user_factures_edit", methods={"GET","POST"})
@@ -96,7 +96,7 @@ class FacturesController extends AbstractController
     /**
      * @Route("/{id}", name="factures_delete", methods={"DELETE"})
      */
-    public function delete(Request $request, Factures $facture): Response
+ /*   public function delete(Request $request, Factures $facture): Response
     {
         if ($this->isCsrfTokenValid('delete'.$facture->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
@@ -105,5 +105,5 @@ class FacturesController extends AbstractController
         }
 
         return $this->redirectToRoute('factures_index');
-    }
+    }*/
 }
