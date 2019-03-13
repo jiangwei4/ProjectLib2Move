@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\OffreLocationsRepository;
 use App\Entity\OffreLocations;
+use App\Entity\Factures;
 use App\Entity\Locations;
 use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
@@ -60,6 +61,14 @@ class LocationsController extends AbstractController
 
         if($form->isSubmitted() && $form->isValid())
         {
+
+            $facture = new Factures();
+            $facture->setUser($this->getUser());
+            $facture->setLocation($location);
+            $facture->setDate(new Date());
+            $facture->setPrix(10);
+            $location->setFactures($facture);
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($location);
             $entityManager->flush();
