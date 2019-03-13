@@ -31,16 +31,18 @@
             <a href="/user/register" class="w3-bar-item w3-button w3-mobile">Register</a>
             <a href="/user/login" class="w3-bar-item w3-button w3-mobile">LogIn</a>
         {%endif%}
+         {% if is_granted('IS_AUTHENTICATED_FULLY') %}  
         <div class="w3-dropdown-hover w3-mobile">
             <button class="w3-button">Gestion Compte<i class="fa fa-caret-down"></i></button>
             <div class="w3-dropdown-content w3-bar-block w3-dark-grey">
                 <a href="/modifier/user" class="w3-bar-item w3-button w3-mobile">Modifier Votre Compte</a>
-                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+              
                         {% if is_granted('ROLE_ADMIN') %}
                             <a href="/user2" class="w3-bar-item w3-button w3-mobile">Lister les utilisateurs</a>
                     {% endif %}
-                {% endif %}
+                
              </div>
+             {% endif %}
         </div>
 
         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
@@ -79,7 +81,8 @@
 
 
 
-
+ {% if is_granted('IS_AUTHENTICATED_FULLY') %} 
+    {% if is_granted('ROLE_ADMIN') %}
             <div class="w3-dropdown-hover w3-mobile">
                 <button class="w3-button">Gestion Location<i class="fa fa-caret-down"></i></button>
                 <div class="w3-dropdown-content w3-bar-block w3-dark-grey">
@@ -87,14 +90,16 @@
                     <a href="/modifier/offre/locations"" class="w3-bar-item w3-button w3-mobile">Modifier Offre de Location</a>
                 </div>
             </div>
-            
+     {% endif %}  
+ {% endif %}  
+ {% if is_granted('IS_AUTHENTICATED_FULLY') %} 
             <div class="w3-dropdown-hover w3-mobile">
                 <button class="w3-button">Choix Location<i class="fa fa-caret-down"></i></button>
                 <div class="w3-dropdown-content w3-bar-block w3-dark-grey">
                     <a href="/locations" class="w3-bar-item w3-button w3-mobile">Offres de Location</a><br>
                 </div>
             </div>
-
+  {% endif %}
 
 
 
