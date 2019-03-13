@@ -1,4 +1,11 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
+   
+
+<label class="w3-text"><b> {{ form_label(form.Nom) }}</b></label>
+        <br>{{ form_errors(form.Nom) }}
+        {{ form_widget(form.Nom) }}
+        {{ form_help(form.Nom) }}
+
     <button class="btn">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}
+
