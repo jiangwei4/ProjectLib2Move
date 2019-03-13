@@ -28,7 +28,7 @@ class FacturesController extends AbstractController
     /**
      * @Route("/new", name="factures_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+ /*   public function new(Request $request): Response
     {
         $facture = new Factures();
         $form = $this->createForm(FacturesType::class, $facture);
@@ -46,7 +46,7 @@ class FacturesController extends AbstractController
             'facture' => $facture,
             'form' => $form->createView(),
         ]);
-    }
+    }*/
 
     /**
      * @Route("/{id}", name="factures_show", methods={"GET"})
