@@ -50,8 +50,8 @@
             <div class="w3-dropdown-hover w3-mobile">
                 <button class="w3-button">Gestion Ville<i class="fa fa-caret-down"></i></button>
                 <div class="w3-dropdown-content w3-bar-block w3-dark-grey">
-                    <a href="/ajouter/ville" class="w3-bar-item w3-button w3-mobile">Ajouter une ville</a>
-                    <a href="/liste/ville" class="w3-bar-item w3-button w3-mobile">Lister les villes</a>
+                    <a href="/ville/new" class="w3-bar-item w3-button w3-mobile">Ajouter une ville</a>
+                    <a href="/liste/" class="w3-bar-item w3-button w3-mobile">Lister les villes</a>
                 </div>
             </div>
             {% endif %}
@@ -160,6 +160,9 @@
 <!--<div id="infoposition"></div>
 <div id="map"></div>
 <div id="map-canvas"></div>-->
+
+
+   <!-- {% include '@FullCalendar/Calendar/calendar.html.twig' %} -->
 
     {% block body %}{% endblock %}
     {% block javascripts %}{% endblock %}

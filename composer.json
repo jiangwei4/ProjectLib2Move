@@ -26,7 +26,8 @@
         "symfony/validator": "4.2.*",
         "symfony/web-link": "4.2.*",
         "symfony/web-server-bundle": "4.2.*",
-        "symfony/yaml": "4.2.*"
+        "symfony/yaml": "4.2.*",
+        "toiba/fullcalendar-bundle": "^6.2"
     },
     "require-dev": {
         "hautelook/alice-bundle": "^2.3",

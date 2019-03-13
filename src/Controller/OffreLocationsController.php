@@ -28,18 +28,22 @@ class OffreLocationsController extends AbstractController
     /**
      * @Route("/new", name="offre_locations_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, OffreLocationsRepository $offreLocationsRepository): Response
     {
         $offreLocation = new OffreLocations();
         $form = $this->createForm(OffreLocations1Type::class, $offreLocation);
         $form->handleRequest($request);
-
+            //recuperer liste des offres 
+         $exist = $offreLocationsRepository->findBy(['Gamme'=>$request->getGamme(),'TypeVehicule'=>$request->getTypeVehicule(),'Ville'=>$request->getVille()]);
+         dump($exist);die;
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($offreLocation);
-            $entityManager->flush();
+            if(syzeof($exist) == 0 ){
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($offreLocation);
+                $entityManager->flush();
 
-            return $this->redirectToRoute('/home');
+                return $this->redirectToRoute('/home');
+            }
         }
 
         return $this->render('offre_locations/new.html.twig', [
