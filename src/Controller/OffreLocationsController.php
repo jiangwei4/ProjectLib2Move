@@ -42,7 +42,7 @@ class OffreLocationsController extends AbstractController
                 $entityManager->persist($offreLocation);
                 $entityManager->flush();
 
-                return $this->redirectToRoute('/home');
+                return $this->redirectToRoute('offre_locations_index');
            // }
         }
 
