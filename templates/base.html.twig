@@ -104,6 +104,20 @@
 
 
 
+ {% if is_granted('IS_AUTHENTICATED_FULLY') %} 
+            <div class="w3-dropdown-hover w3-mobile">
+                <button class="w3-button">Gestion vehicule<i class="fa fa-caret-down"></i></button>
+                <div class="w3-dropdown-content w3-bar-block w3-dark-grey">
+                   <!-- <a href="/vehicule/" class="w3-bar-item w3-button w3-mobile">Voir les véhicules</a><br>-->
+                     {% if is_granted('ROLE_ADMIN') %}
+                     <a href="/vehicule/" class="w3-bar-item w3-button w3-mobile">Lister les véhicules</a>
+                         {% endif %} 
+                </div>
+            </div> 
+ {% endif %}  
+
+
+
 
     </div>
 
