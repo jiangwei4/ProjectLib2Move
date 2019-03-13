@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\OffreLocationsRepository;
 use App\Entity\OffreLocations;
+use App\Entity\Locations;
 use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use App\Repository\GammeRepository;
@@ -13,6 +14,9 @@ use App\Controller\OffreLocationsUserController;
 use App\Repository\OffreLocationsUserRepository;
 use App\Repository\VehiculeRepository;
 use Symfony\Component\HttpFoundation\Request;
+use App\Form\AjouterLocationType;
+
+// use phpDocumentor\Reflection\Location;
 
 class LocationsController extends AbstractController
 {
@@ -50,6 +54,22 @@ class LocationsController extends AbstractController
      */
     public function userVehiculeToRent(Request $request, EntityManagerInterface $entityManager,VehiculeRepository $VehiculeRepository, $idVehicule)
     {        
-        return $this->render('locations/user-vehicule-to-rent.html.twig', []);
+        $location = new Locations();   
+        $form = $this->createForm(AjouterLocationType::class, $location);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid())
+        {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($location);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('/home');
+        }
+
+        return $this->render('locations/user-vehicule-to-rent.html.twig', [
+            'location' => $location,
+            'form' => $form->createView(),
+        ]);
     }
 }
