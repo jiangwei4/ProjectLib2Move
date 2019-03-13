@@ -12,7 +12,13 @@
     {% if Offrelocations|length < 1 %}
         <p>Aucune Offre</p>
     {% endif %}
-
+            <div class="w3-card-4" style="width:100%;">
+                <header class="w3-container w3-blue">
+                    <h1>Ajouter une nouvelle offre de location :  <a href="{{ path('offre_locations_new') }}"><img src="\img\create.png"></a></h1>
+                </header>
+            </div>
+    <p></p>
+    <br>
     {% for offre in Offrelocations %}
 
 <br>
@@ -33,5 +39,6 @@
         </div>
 
     {% endfor %}
+    
 </div>
 {% endblock %}
