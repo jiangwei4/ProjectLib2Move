@@ -19,8 +19,8 @@
                 <td>{{ ville.id }}</td>
                 <td>{{ ville.Nom }}</td>
                 <td>
-                    <a href="{{ path('ville_show', {'id': ville.id}) }}">show</a>
-                    <a href="{{ path('ville_edit', {'id': ville.id}) }}">edit</a>
+                    <a href="{{ path('ville_show', {'id': ville.id}) }}"><img src="\img\show.png"></a></a>
+                    <a href="{{ path('ville_edit', {'id': ville.id}) }}"><img src="\img\edit.png"></a></a>
                 </td>
             </tr>
         {% else %}

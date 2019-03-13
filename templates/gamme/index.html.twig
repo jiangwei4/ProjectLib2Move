@@ -19,8 +19,8 @@
                 <td>{{ gamme.id }}</td>
                 <td>{{ gamme.Nom }}</td>
                 <td>
-                    <a href="{{ path('gamme_show', {'id': gamme.id}) }}">show</a>
-                    <a href="{{ path('gamme_edit', {'id': gamme.id}) }}">edit</a>
+                    <a href="{{ path('gamme_show', {'id': gamme.id}) }}"><img src="\img\show.png"></a></a>
+                    <a href="{{ path('gamme_edit', {'id': gamme.id}) }}"><img src="\img\edit.png"></a></a>
                 </td>
             </tr>
         {% else %}

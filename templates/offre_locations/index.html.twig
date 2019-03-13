@@ -22,8 +22,8 @@
                 <td>{{ offre_location.Prix }}</td>
                 <td>{{ offre_location.Ville }}</td>
                 <td>
-                    <a href="{{ path('offre_locations_show', {'id': offre_location.id}) }}">show</a>
-                    <a href="{{ path('offre_locations_edit', {'id': offre_location.id}) }}">edit</a>
+                    <a href="{{ path('offre_locations_show', {'id': offre_location.id}) }}"><img src="\img\show.png"></a></a>
+                    <a href="{{ path('offre_locations_edit', {'id': offre_location.id}) }}"><img src="\img\edit.png"></a></a>
                 </td>
             </tr>
         {% else %}

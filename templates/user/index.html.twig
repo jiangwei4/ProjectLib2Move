@@ -37,8 +37,8 @@
                 <td>{{ user.Email }}</td>
                 <td>{{ user.NumPermis }}</td>
                 <td>
-                    <a href="{{ path('user_show', {'id': user.id}) }}">show</a>
-                    <a href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
+                    <a href="{{ path('user_show', {'id': user.id}) }}"><img src="\img\show.png"></a></a>
+                    <a href="{{ path('user_edit', {'id': user.id}) }}"><img src="\img\edit.png"></a></a>
                 </td>
             </tr>
         {% else %}
