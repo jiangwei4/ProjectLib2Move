@@ -86,7 +86,7 @@
             <div class="w3-dropdown-hover w3-mobile">
                 <button class="w3-button">Gestion Location<i class="fa fa-caret-down"></i></button>
                 <div class="w3-dropdown-content w3-bar-block w3-dark-grey">
-                    <a href="/offre/location" class="w3-bar-item w3-button w3-mobile">Ajout Offre de Location</a><br>
+                    <a href="/offre/locations" class="w3-bar-item w3-button w3-mobile">Ajout Offre de Location</a><br>
                     <a href="/modifier/offre/locations"" class="w3-bar-item w3-button w3-mobile">Modifier Offre de Location</a>
                 </div>
             </div>
@@ -111,6 +111,7 @@
                    <!-- <a href="/vehicule/" class="w3-bar-item w3-button w3-mobile">Voir les véhicules</a><br>-->
                      {% if is_granted('ROLE_ADMIN') %}
                      <a href="/vehicule/" class="w3-bar-item w3-button w3-mobile">Lister les véhicules</a>
+                     <a href="/type/vehicule" class="w3-bar-item w3-button w3-mobile">Lister type de véhicules</a>
                          {% endif %} 
                 </div>
             </div> 
