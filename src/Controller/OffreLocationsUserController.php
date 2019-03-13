@@ -22,13 +22,15 @@ class OffreLocationsUserController extends AbstractController
     /**
      * @Route("/", name="user_offre_location", methods={"GET"})
      */
-    public function index(OffreLocationsRepository $offreLocationsRepository): Response
+    public function index(OffreLocationsRepository $OffreLocationsRepository)
     {
-        return $this->render('user_offre_locations/index.html.twig', [
-            'offre_locations' => $offreLocationsRepository->findAll(),
+        $locations = $OffreLocationsRepository->findAll();
+        return $this->render('locations/index.html.twig', [
+            'controller_name' => 'LocationsController',
+            'locations'=>$locations,
         ]);
     }
-   
+
     /**
      * @Route("/{id}/vehicules", name="offre_locations_by_vehicule_list", methods={"GET", "POST"})
      */
@@ -41,6 +43,7 @@ class OffreLocationsUserController extends AbstractController
             "TypeVehicule" => $offreLocationsUser->getTypeVehicule(),            
             "Ville" => $offreLocationsUser->getVille(),            
             "Gamme" => $offreLocationsUser->getGamme(),
+            
             ])
         ]);
     }

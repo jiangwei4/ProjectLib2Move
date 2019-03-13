@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <meta name="viewport" content="width=device-width"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta name="viewport" content="width=device-width, minimum-scale=0.25"/>
+        <meta name="viewport" content="width=device-width, maximum-scale=5.0"/>
+        <meta name="viewport" content="width=device-width, user-scalable=no"/>
+        <link rel="stylesheet" href="\css\style.css">
+        <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+        
+     
+        <script type="text/javascript" src="http://maps.google.com/maps?file=api&v=2&key=AIzaSyC2Ukyz69u0v8LbA9Kw-kiw4Y16oB1eYXo"></script>
+        <script type="text/javascript" src="\js\lib2move.js"></script>
+          <!--<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC2Ukyz69u0v8LbA9Kw-kiw4Y16oB1eYXo&callback=initMap"></script>-->
+    </head>
+    <body>
+
+        <header>
+
+
+    <div class="w3-bar w3-black">
+        <a href="#" class="w3-bar-item w3-button w3-mobile w3-green">Home</a>
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            <a href="/logout" class="w3-bar-item w3-button w3-mobile">LogOut</a>
+        {% else %}
+            <a href="/user/register" class="w3-bar-item w3-button w3-mobile">Register</a>
+            <a href="/user/login" class="w3-bar-item w3-button w3-mobile">LogIn</a>
+        {%endif%}
+         {% if is_granted('IS_AUTHENTICATED_FULLY') %}  
+        <div class="w3-dropdown-hover w3-mobile">
+            <button class="w3-button">Gestion Compte<i class="fa fa-caret-down"></i></button>
+            <div class="w3-dropdown-content w3-bar-block w3-dark-grey">
+                <a href="/modifier/user" class="w3-bar-item w3-button w3-mobile">Modifier Votre Compte</a>
+              
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <a href="/user2" class="w3-bar-item w3-button w3-mobile">Lister les utilisateurs</a>
+                    {% endif %}
+                
+             </div>
+             {% endif %}
+        </div>
+
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            {% if is_granted('ROLE_ADMIN') %}
+            <div class="w3-dropdown-hover w3-mobile">
+                <button class="w3-button">Gestion Ville<i class="fa fa-caret-down"></i></button>
+                <div class="w3-dropdown-content w3-bar-block w3-dark-grey">
+                    <a href="/ajouter/ville" class="w3-bar-item w3-button w3-mobile">Ajouter une ville</a>
+                    <a href="/liste/ville" class="w3-bar-item w3-button w3-mobile">Lister les villes</a>
+                </div>
+            </div>
+            {% endif %}
+        {% endif %}
+
+
+
+ {% if is_granted('IS_AUTHENTICATED_FULLY') %}  
+            <div class="w3-dropdown-hover w3-mobile">
+                <button class="w3-button">Gestion factures<i class="fa fa-caret-down"></i></button>
+                <div class="w3-dropdown-content w3-bar-block w3-dark-grey">
+                    <a href="/factures/user/show" class="w3-bar-item w3-button w3-mobile">Vos Factures</a>
+                    {% if is_granted('ROLE_ADMIN') %}
+                    <a href="/factures" class="w3-bar-item w3-button w3-mobile">Lister les factures</a>
+                    {% endif %}
+                </div>
+            </div> 
+        {% endif %}
+
+
+
+
+
+
+
+
+
+
+
+ {% if is_granted('IS_AUTHENTICATED_FULLY') %} 
+    {% if is_granted('ROLE_ADMIN') %}
+            <div class="w3-dropdown-hover w3-mobile">
+                <button class="w3-button">Gestion Location<i class="fa fa-caret-down"></i></button>
+                <div class="w3-dropdown-content w3-bar-block w3-dark-grey">
+                    <a href="/offre/location" class="w3-bar-item w3-button w3-mobile">Ajout Offre de Location</a><br>
+                    <a href="/modifier/offre/locations"" class="w3-bar-item w3-button w3-mobile">Modifier Offre de Location</a>
+                </div>
+            </div>
+     {% endif %}  
+ {% endif %}  
+ {% if is_granted('IS_AUTHENTICATED_FULLY') %} 
+            <div class="w3-dropdown-hover w3-mobile">
+                <button class="w3-button">Choix Location<i class="fa fa-caret-down"></i></button>
+                <div class="w3-dropdown-content w3-bar-block w3-dark-grey">
+                    <a href="/locations" class="w3-bar-item w3-button w3-mobile">Offres de Location</a><br>
+                </div>
+            </div>
+  {% endif %}
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </header>
+
+
+        <br><br><br><br>
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            <p>Bonjour: {{ app.user.Prenom }} </p>
+        {% endif %}
+
+
+
+    <div class="w3-container">
+
+
+
+
+        {% for label, messages in app.flashes %}
+            {% for message in messages %}
+                <div class="flash-{{ label }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+
+<!--<div id="infoposition"></div>
+<div id="map"></div>
+<div id="map-canvas"></div>-->
+
+    {% block body %}{% endblock %}
+    {% block javascripts %}{% endblock %}
+
+
