@@ -5,8 +5,7 @@
 {% block body %}
 
         {% for vehicule in vehicules %}
-            {{vehicule.marque}}
-            {{vehicule.modele}}
+            <a href='{{ path("user_vehicule_to_rent", {"idVehicule": vehicule.id }) }}' >{{vehicule.marque}} {{vehicule.modele}}
         {% endfor %}
 
 {% endblock %}
