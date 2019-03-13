@@ -52,7 +52,11 @@ class Locations
      */
     private $ville;
 
-
+    /** 
+    * @ORM\OneToOne(targetEntity="App\Entity\Factures", inversedBy="Locations")
+    * @ORM\JoinColumn(nullable=true)
+    */
+    private $factures;
 
     public function getId(): ?int
     {
@@ -128,6 +132,16 @@ class Locations
     {
         $this->prix = $prix;
         return $this;
+    }
+
+    public function getFactures(): ?string
+    {
+        return $this->factures;
+    }
+
+    public function setFactures($facture): void
+    {
+        $this->factures = $facture;
     }
 
 }

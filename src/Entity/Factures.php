@@ -33,7 +33,9 @@ class Factures
     private $prix;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * 
+     * @ORM\OneToOne(targetEntity="App\Entity\Locations", inversedBy="Factures")
+     * @ORM\JoinColumn(nullable=true)
      */
     private $location;
 
