@@ -3,9 +3,48 @@
 {% block title %}Hello OffreLocationController!{% endblock %}
 
 {% block body %}
+    <style>
+        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    </style>
 
-   {{ form_start(form) }}   
-   {{ form_widget(form) }}   
-   {{ form_end(form) }}
+    <div class="example-wrapper">
+
+        {{ form_start(form) }}
+        <div class="w3-container w3-red">
+            <h2>Modifier Offre</h2>
+        </div>
+      <label class="w3-text"><b>{{ form_label(form.TypeVehicule) }}</b></label>
+       <br> {{ form_errors(form.TypeVehicule) }}
+        {{ form_widget(form.TypeVehicule) }}
+        {{ form_help(form.TypeVehicule) }}
+        <br>
+        <label class="w3-text"><b> {{ form_label(form.kmMax) }}</b></label>
+        <br>{{ form_errors(form.kmMax) }}
+        {{ form_widget(form.kmMax) }}
+        {{ form_help(form.kmMax) }}
+
+        <br> <label class="w3-text"><b> {{ form_label(form.prix) }}</b></label>
+        <br>{{ form_errors(form.prix) }}
+        {{ form_widget(form.prix) }}
+        {{ form_help(form.prix) }}
+
+
+        <br><label class="w3-text"><b> {{ form_label(form.Ville) }}</b></label>
+        <br>{{ form_errors(form.Ville) }}
+        {{ form_widget(form.Ville) }}
+        {{ form_help(form.Ville) }}
+
+        <br><label class="w3-text"><b> {{ form_label(form.Gamme) }}</b></label>
+        <br>{{ form_errors(form.Gamme) }}
+        {{ form_widget(form.Gamme) }}
+        {{ form_help(form.Gamme) }}
+
+        {{ form_row(form.submit) }}
+
+        {{ form_end(form) }}
+        
+    </div>
+
 
 {% endblock %}

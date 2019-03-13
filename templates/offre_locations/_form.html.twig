@@ -1,4 +1,31 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
+    
+
+    <label class="w3-text"><b>{{ form_label(form.TypeVehicule) }}</b></label>
+       <br> {{ form_errors(form.TypeVehicule) }}
+        {{ form_widget(form.TypeVehicule) }}
+        {{ form_help(form.TypeVehicule) }}
+        <br>
+        <label class="w3-text"><b> {{ form_label(form.KmMax) }}</b></label>
+        <br>{{ form_errors(form.KmMax) }}
+        {{ form_widget(form.KmMax) }}
+        {{ form_help(form.KmMax) }}
+
+        <br> <label class="w3-text"><b> {{ form_label(form.Prix) }}</b></label>
+        <br>{{ form_errors(form.Prix) }}
+        {{ form_widget(form.Prix) }}
+        {{ form_help(form.Prix) }}
+
+
+        <br><label class="w3-text"><b> {{ form_label(form.Ville) }}</b></label>
+        <br>{{ form_errors(form.Ville) }}
+        {{ form_widget(form.Ville) }}
+        {{ form_help(form.Ville) }}
+
+        <br><label class="w3-text"><b> {{ form_label(form.Gamme) }}</b></label>
+        <br>{{ form_errors(form.Gamme) }}
+        {{ form_widget(form.Gamme) }}
+        {{ form_help(form.Gamme) }}
     <button class="btn">{{ button_label|default('Save') }}</button>
+
 {{ form_end(form) }}
