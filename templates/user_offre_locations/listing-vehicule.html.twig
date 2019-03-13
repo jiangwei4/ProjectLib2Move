@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello LocationsController!{% endblock %}
+
+{% block body %}
+
+        {% for vehicule in vehicules %}
+            {{vehicule.marque}}
+            {{vehicule.modele}}
+        {% endfor %}
+
+{% endblock %}

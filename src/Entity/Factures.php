@@ -86,7 +86,6 @@ class Factures
     public function setLocation(string $location): self
     {
         $this->location = $location;
-
         return $this;
     }
 }
