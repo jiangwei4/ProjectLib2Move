@@ -18,30 +18,14 @@
             <h2>Modifier Offre</h2>
         </div>
       <label class="w3-text"><b>{{ form_label(form.dateDebut) }}</b></label>
-       <br> {{ form_errors(form.TypeVehicule) }}
-        {{ form_widget(form.TypeVehicule) }}
-        {{ form_help(form.TypeVehicule) }}
+       <br> {{ form_errors(form.dateDebut) }}
+        {{ form_widget(form.dateDebut) }}
+        {{ form_help(form.dateDebut) }}
         <br>
-        <label class="w3-text"><b> {{ form_label(form.kmMax) }}</b></label>
-        <br>{{ form_errors(form.kmMax) }}
-        {{ form_widget(form.kmMax) }}
-        {{ form_help(form.kmMax) }}
-
-        <br> <label class="w3-text"><b> {{ form_label(form.prix) }}</b></label>
-        <br>{{ form_errors(form.prix) }}
-        {{ form_widget(form.prix) }}
-        {{ form_help(form.prix) }}
-
-
-        <br><label class="w3-text"><b> {{ form_label(form.Ville) }}</b></label>
-        <br>{{ form_errors(form.Ville) }}
-        {{ form_widget(form.Ville) }}
-        {{ form_help(form.Ville) }}
-
-        <br><label class="w3-text"><b> {{ form_label(form.Gamme) }}</b></label>
-        <br>{{ form_errors(form.Gamme) }}
-        {{ form_widget(form.Gamme) }}
-        {{ form_help(form.Gamme) }}
+        <label class="w3-text"><b> {{ form_label(form.dateFin) }}</b></label>
+        <br>{{ form_errors(form.dateFin) }}
+        {{ form_widget(form.dateFin) }}
+        {{ form_help(form.dateFin) }}
 
         {{ form_row(form.submit) }}
 
