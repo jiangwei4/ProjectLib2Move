@@ -21,7 +21,7 @@
                 <td>{{ offre_location.KmMax }}</td>
                 <td>{{ offre_location.Prix }}</td>
                 <td>
-                    <a href="{{ path('offre_locations_show', {'id': offre_location.id}) }}">show</a>                    
+                    <a href="{{ path('offre_locations_show', {'id': offre_location.id}) }}"><img src="\img\show.png"></a></a>                    
                 </td>
             </tr>
         {% else %}
@@ -32,5 +32,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('offre_locations_new') }}">Create new</a>
+    <a href="{{ path('offre_locations_new') }}"><img src="\img\create.jpg"></a>
 {% endblock %}
