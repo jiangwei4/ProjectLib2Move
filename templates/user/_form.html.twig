@@ -1,4 +1,45 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
+  
+    <h2>All fields marked with an asterisk (<font color="red">*</font>) are mandatory</h2>
+        <label class="w3-text"><b>{{ form_label(form.Prenom) }}</b></label>
+       <br> {{ form_errors(form.Prenom) }}
+        {{ form_widget(form.Prenom) }}
+        {{ form_help(form.Prenom) }}
+        <br>
+        <label class="w3-text"><b> {{ form_label(form.Nom) }}</b></label>
+        <br>{{ form_errors(form.Nom) }}
+        {{ form_widget(form.Nom) }}
+        {{ form_help(form.Nom) }}
+
+        <br> <label class="w3-text"><b> {{ form_label(form.Adresse) }}</b></label>
+        <br>{{ form_errors(form.Adresse) }}
+        {{ form_widget(form.Adresse) }}
+        {{ form_help(form.Adresse) }}
+
+        <br><label class="w3-text"><b> {{ form_label(form.Email) }}<font color="red"> *</font></b></label>
+        <br>{{ form_errors(form.Email) }}
+        {{ form_widget(form.Email) }}
+        {{ form_help(form.Email) }}
+
+        <br><label class="w3-text"><b> {{ form_label(form.Telephone) }}</b></label>
+        <br>{{ form_errors(form.Telephone) }}
+        {{ form_widget(form.Telephone) }}
+        {{ form_help(form.Telephone) }}
+
+        <br><label class="w3-text"><b> {{ form_label(form.NumPermis) }}</b></label>
+        <br>{{ form_errors(form.NumPermis) }}
+        {{ form_widget(form.NumPermis) }}
+        {{ form_help(form.NumPermis) }}
+
+        <br> <label class="w3-text"><b> {{ form_label(form.Password) }}<font color="red"> *</font></b></b></label>
+        <br>{{ form_errors(form.Password) }}
+        {{ form_widget(form.Password) }}
+        {{ form_help(form.Password) }}
+
+<br> <label class="w3-text"><b> {{ form_label(form.Role) }}<font color="red"> *</font></b></b></label>
+        <br>{{ form_errors(form.Role) }}
+        {{ form_widget(form.Role) }}
+        {{ form_help(form.Role) }}
+
     <button class="btn">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}

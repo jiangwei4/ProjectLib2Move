@@ -1,6 +1,0 @@
-{% for vehicule in vehicules %}
-    {{ vehicule.type }}
-    <a href="{{ path('modifier_vehicule', {slug: vehicule.id}) }}">Modifier</a>
-    <a href="{{ path('supprimer_vehicule', {slug: vehicule.id}) }}">Supprimer</a>
-    <br />
-{% endfor %}
