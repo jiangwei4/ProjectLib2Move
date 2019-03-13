@@ -22,15 +22,6 @@ class Locations
      */
     private $user;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $vehicule;
-
-    /**
-     * @ORM\Column(type="bigint")
-     */
-    private $kmMax;
 
     /**
      * @ORM\Column(type="date")
@@ -42,21 +33,16 @@ class Locations
      */
     private $dateFin;
 
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $prix;
-
-    /**
-     * @ORM\Column(type="string")
-     */
-    private $ville;
-
     /** 
     * @ORM\OneToOne(targetEntity="App\Entity\Factures", inversedBy="Locations")
     * @ORM\JoinColumn(nullable=true)
     */
     private $factures;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Vehicule", inversedBy="locations", cascade={"persist"})
+     */
+    private $Vehicule;
 
     public function getId(): ?int
     {
@@ -71,30 +57,6 @@ class Locations
     public function setUser(string $user): self
     {
         $this->user = $user;
-
-        return $this;
-    }
-
-    public function getVehicule(): ?string
-    {
-        return $this->vehicule;
-    }
-
-    public function setVehicule(string $vehicule): self
-    {
-        $this->vehicule = $vehicule;
-
-        return $this;
-    }
-
-    public function getKmMax(): ?int
-    {
-        return $this->kmMax;
-    }
-
-    public function setKmMax(int $kmMax): self
-    {
-        $this->kmMax = $kmMax;
 
         return $this;
     }
@@ -123,17 +85,6 @@ class Locations
         return $this;
     }
 
-    public function getPrix(): ?int
-    {
-        return $this->prix;
-    }
-
-    public function setPrix(int $prix): self
-    {
-        $this->prix = $prix;
-        return $this;
-    }
-
     public function getFactures(): ?string
     {
         return $this->factures;
@@ -142,6 +93,18 @@ class Locations
     public function setFactures($facture): void
     {
         $this->factures = $facture;
+    }
+
+    public function getVehicule(): ?Vehicule
+    {
+        return $this->Vehicule;
+    }
+
+    public function setVehicule(?Vehicule $Vehicule): self
+    {
+        $this->Vehicule = $Vehicule;
+
+        return $this;
     }
 
 }

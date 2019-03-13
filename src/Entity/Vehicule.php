@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -78,6 +80,17 @@ class Vehicule
      */
     private $Ville;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Locations", mappedBy="Vehicule")
+     */
+    private $locations;
+
+
+    public function __construct()
+    {
+        $this->locations = new ArrayCollection();
+    }
+    
     public function getId(): ?int
     {
         return $this->id;
@@ -226,4 +239,36 @@ class Vehicule
 
         return $this;
     }
+
+    /**
+     * @return Collection|Locations[]
+     */
+    public function getLocations(): Collection
+    {
+        return $this->locations;
+    }
+
+    public function addLocation(Locations $location): self
+    {
+        if (!$this->locations->contains($location)) {
+            $this->locations[] = $location;
+            $location->setVehicule($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLocation(Locations $location): self
+    {
+        if ($this->locations->contains($location)) {
+            $this->locations->removeElement($location);
+            // set the owning side to null (unless already changed)
+            if ($location->getVehicule() === $this) {
+                $location->setVehicule(null);
+            }
+        }
+
+        return $this;
+    }
+
 }

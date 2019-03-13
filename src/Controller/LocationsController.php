@@ -16,6 +16,7 @@ use App\Repository\OffreLocationsUserRepository;
 use App\Repository\VehiculeRepository;
 use Symfony\Component\HttpFoundation\Request;
 use App\Form\AjouterLocationType;
+use Symfony\Component\Validator\Constraints\Date;
 
 // use phpDocumentor\Reflection\Location;
 
@@ -61,19 +62,21 @@ class LocationsController extends AbstractController
 
         if($form->isSubmitted() && $form->isValid())
         {
-
+            
+            $location->setVehicule($VehiculeRepository->find($idVehicule));
             $facture = new Factures();
             $facture->setUser($this->getUser());
             $facture->setLocation($location);
-            $facture->setDate(new Date());
-            $facture->setPrix(10);
+            $facture->setDate(new \DateTime());
+            $facture->setPrix();
             $location->setFactures($facture);
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($location);
+            $entityManager->persist($facture);
             $entityManager->flush();
 
-            return $this->redirectToRoute('/home');
+            return $this->redirectToRoute('home');
         }
 
         return $this->render('locations/user-vehicule-to-rent.html.twig', [

@@ -91,8 +91,6 @@ class User implements UserInterface
     public function setNom(string $Nom): self
     {
         $this->Nom = $Nom;
-
-        return $this;
     }
 
     public function getPrenom(): ?string
@@ -115,8 +113,6 @@ class User implements UserInterface
     public function setPassword(string $Password): self
     {
         $this->Password = $Password;
-
-        return $this;
     }
     public function getRole()
     {

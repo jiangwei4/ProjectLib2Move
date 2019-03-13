@@ -49,11 +49,9 @@ class Factures
         return $this->user;
     }
 
-    public function setUser(User $user): User
+    public function setUser(User $user)
     {
         $this->user = $user;
-
-        return $this;
     }
 
     public function getDate(): ?\DateTimeInterface
@@ -85,9 +83,15 @@ class Factures
         return $this->location;
     }
 
-    public function setLocation(string $location): self
+    public function setLocation(Locations $location): self
     {
         $this->location = $location;
         return $this;
     }
+
+    public function __toString()
+    {
+        return "";
+    }
+
 }
