@@ -51,7 +51,7 @@
                 <button class="w3-button">Gestion Ville<i class="fa fa-caret-down"></i></button>
                 <div class="w3-dropdown-content w3-bar-block w3-dark-grey">
                     <a href="/ville/new" class="w3-bar-item w3-button w3-mobile">Ajouter une ville</a>
-                    <a href="/liste/" class="w3-bar-item w3-button w3-mobile">Lister les villes</a>
+                    <a href="/ville" class="w3-bar-item w3-button w3-mobile">Lister les villes</a>
                 </div>
             </div>
             {% endif %}
@@ -65,7 +65,7 @@
                 <div class="w3-dropdown-content w3-bar-block w3-dark-grey">
                     <a href="/factures/user/show" class="w3-bar-item w3-button w3-mobile">Vos Factures</a>
                     {% if is_granted('ROLE_ADMIN') %}
-                    <a href="/factures" class="w3-bar-item w3-button w3-mobile">Lister les factures</a>
+                    <a href="/factures/liste" class="w3-bar-item w3-button w3-mobile">Lister les factures</a>
                     {% endif %}
                 </div>
             </div> 
