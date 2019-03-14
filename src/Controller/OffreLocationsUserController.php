@@ -22,8 +22,25 @@ class OffreLocationsUserController extends AbstractController
     /**
      * @Route("/", name="user_offre_location", methods={"GET"})
      */
-    public function index(OffreLocationsRepository $OffreLocationsRepository)
+    public function index(OffreLocationsRepository $OffreLocationsRepository, FacturesRepository $FacturesRepository)
     {
+        $factures= $FacturesRepository->findBy(["user"=>$this->getUser()]);
+        $tableau= array();
+        foreach ($facture as $factures){
+                
+                $offreLocations = $vehiculeRepository->findBy([
+                "TypeVehicule" => $facture->getLocation()->getTypeVehicule(),            
+                "Ville" => $facture->getLocation()->getVille(),            
+                "Gamme" =>$facture->getLocation()->getGamme()
+                
+                ]);
+                array_push($tableau, $offreLocations);
+                
+        }
+
+
+
+
         $locations = $OffreLocationsRepository->findAll();
         return $this->render('locations/index.html.twig', [
             'controller_name' => 'LocationsController',
