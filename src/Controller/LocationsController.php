@@ -83,7 +83,7 @@ class LocationsController extends AbstractController
             $entityManager->persist($location);
             $entityManager->persist($facture);
             $entityManager->flush();
-
+            $this->addFlash('notice','Votre véhicule a été réservé. Vous pouvez consulter votre facture dans la page de gestion des facture');
             return $this->redirectToRoute('home');
         }
 

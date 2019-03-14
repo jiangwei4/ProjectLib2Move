@@ -5,7 +5,8 @@
 {% block body %}
 
         {% for vehicule in vehicules %}
-            <a href='{{ path("user_vehicule_to_rent", {"idVehicule": vehicule.id,"idOffreLocationLocation":idOffreLocationLocation }) }}' >{{vehicule.marque}} {{vehicule.modele}}
+            <h1><a href='{{ path("user_vehicule_to_rent", {"idVehicule": vehicule.id,"idOffreLocationLocation":idOffreLocationLocation }) }}' >{{vehicule.marque}} {{vehicule.modele}}</a></h1>
+            <a href='{{ path("user_vehicule_to_rent", {"idVehicule": vehicule.id,"idOffreLocationLocation":idOffreLocationLocation }) }}' >Couleur: {{vehicule.couleur}} <br> Kilometrage: {{vehicule.kilometrage}}
         {% endfor %}
 
 {% endblock %}
