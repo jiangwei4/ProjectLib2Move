@@ -24,7 +24,7 @@ class OffreLocationsUserController extends AbstractController
      */
     public function index(OffreLocationsRepository $OffreLocationsRepository, FacturesRepository $FacturesRepository)
     {
-        $factures= $FacturesRepository->findBy(["user"=>$this->getUser()]);
+        /*$factures= $FacturesRepository->findBy(["user"=>$this->getUser()]);
         $tableau= array();
         foreach ($facture as $factures){
                 
@@ -35,12 +35,12 @@ class OffreLocationsUserController extends AbstractController
                 
                 ]);
                 array_push($tableau, $offreLocations);
-                
+
         }
-
-
-
-
+        foreach ($elem as $tableau){
+       
+        }
+        */
         $locations = $OffreLocationsRepository->findAll();
         return $this->render('locations/index.html.twig', [
             'controller_name' => 'LocationsController',
