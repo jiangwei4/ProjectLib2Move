@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\OffreLocationsRepository;
@@ -52,17 +53,20 @@ class LocationsController extends AbstractController
         //return $this->redirectToRoute('locations');
     }
     /**
-     * @Route("/user/rent_vehicule/{idVehicule}", name="user_vehicule_to_rent", methods={"GET", "POST"})
+     * @Route("/user/rent_vehicule/{idVehicule}/{idOffreLocationLocation}", name="user_vehicule_to_rent", methods={"GET", "POST"})
      */
-    public function userVehiculeToRent(Request $request, EntityManagerInterface $entityManager,VehiculeRepository $VehiculeRepository, $idVehicule)
+    public function userVehiculeToRent(Request $request, EntityManagerInterface $entityManager,VehiculeRepository $VehiculeRepository,  offreLocationsUserRepository $offreLocationsUserRepository, $idVehicule, $idOffreLocationLocation)
     {        
         $location = new Locations();   
         $form = $this->createForm(AjouterLocationType::class, $location);
+        $offreLocationsUser = $offreLocationsUserRepository->find($idOffreLocationLocation);
+        $prix = $offreLocationsUser->getPrix();
+        
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid())
         {
-            
+            dump($form);die;
             $location->setVehicule($VehiculeRepository->find($idVehicule));
             $facture = new Factures();
             $facture->setUser($this->getUser());

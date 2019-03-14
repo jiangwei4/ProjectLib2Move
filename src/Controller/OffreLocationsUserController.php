@@ -42,9 +42,10 @@ class OffreLocationsUserController extends AbstractController
             'vehicules' => $vehiculeRepository->findBy([
             "TypeVehicule" => $offreLocationsUser->getTypeVehicule(),            
             "Ville" => $offreLocationsUser->getVille(),            
-            "Gamme" => $offreLocationsUser->getGamme(),
+            "Gamme" => $offreLocationsUser->getGamme()
             
-            ])
+            ]),
+            "idOffreLocationLocation"=>$id,
         ]);
     }
 }
