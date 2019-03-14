@@ -66,13 +66,17 @@ class LocationsController extends AbstractController
 
         if($form->isSubmitted() && $form->isValid())
         {
-            dump($form);die;
+            $dateDebut = $location->getdateDebut();
+            $dateFin = $location->getdateFin();
+            $difference = $dateDebut->diff($dateFin);
+            $difference = $difference->format('%a');
+
             $location->setVehicule($VehiculeRepository->find($idVehicule));
             $facture = new Factures();
             $facture->setUser($this->getUser());
             $facture->setLocation($location);
             $facture->setDate(new \DateTime());
-            $facture->setPrix();
+            $facture->setPrix($difference*$prix);
             $location->setFactures($facture);
 
             $entityManager = $this->getDoctrine()->getManager();
