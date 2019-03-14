@@ -21,7 +21,7 @@
                 <td>{{ facture.id }}</td>
                 <td>{{ facture.date ? facture.date|date('Y-m-d') : '' }}</td>
                 <td>{{ facture.prix }}</td>
-                <td>{{ facture.location }}</td>
+                
                 <td>
                     <a href="{{ path('factures_show', {'id': facture.id}) }}"><img src="\img\show.png"></a></a>
 

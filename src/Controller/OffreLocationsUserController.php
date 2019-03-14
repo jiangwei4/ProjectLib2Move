@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\OffreLocations;
 use App\Form\OffreLocations1Type;
 use App\Repository\OffreLocationsRepository;
+use App\Repository\FacturesRepository;
 use App\Repository\VehiculeRepository;
 use App\Repository\OffreLocationsUserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;

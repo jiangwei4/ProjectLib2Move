@@ -17,7 +17,7 @@ class Factures
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="Factures")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="factures")
      * @ORM\JoinColumn(nullable=true)
      */
     private $user;
@@ -34,7 +34,7 @@ class Factures
 
     /**
      * 
-     * @ORM\OneToOne(targetEntity="App\Entity\Locations", inversedBy="Factures")
+     * @ORM\OneToOne(targetEntity="App\Entity\Locations", inversedBy="factures")
      * @ORM\JoinColumn(nullable=true)
      */
     private $location;
@@ -78,7 +78,7 @@ class Factures
         return $this;
     }
 
-    public function getLocation(): ?string
+    public function getLocation(): ?Locations
     {
         return $this->location;
     }
